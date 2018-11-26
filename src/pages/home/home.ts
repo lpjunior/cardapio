@@ -6,9 +6,15 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
-  public titulo:string = "Bem Vindo ao Cardapio Web"; // propriedade
+
+  public username:string;
+  public password:string;
+
   constructor(public navCtrl: NavController) {
 
+  }
+
+  showValues() {
+    alert("Username: " + this.username + "\nPassword: " + this.password);
   }
 }

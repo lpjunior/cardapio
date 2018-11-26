@@ -10,8 +10,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { IntroPageModule } from "../pages/intro/intro.module";
-import { QuestionPageModule } from "../pages/question/question.module";
+
+import { HttpModule } from '@angular/http';
+import { CardapioPageModule } from '../pages/cardapio/cardapio.module';
+import { CardapioProvider } from '../providers/cardapio/cardapio';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,9 @@ import { QuestionPageModule } from "../pages/question/question.module";
   ],
   imports: [
     BrowserModule,
-    IntroPageModule,
-    QuestionPageModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    CardapioPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,7 +40,8 @@ import { QuestionPageModule } from "../pages/question/question.module";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CardapioProvider
   ]
 })
 export class AppModule {}
